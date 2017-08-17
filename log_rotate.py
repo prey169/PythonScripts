@@ -5,7 +5,7 @@ import re
 os.chdir("/Users/frossi/Python/test")
 
 files = os.listdir(".")
-regex = "^a.?\d*$"
+regex = "^a(.?\d*)?$"
 goodfiles = []
 numbers = []
 
@@ -14,6 +14,8 @@ for i in files:
         goodfiles.append(i)
 
 for i in goodfiles:
+    if i == 'a.':
+        continue
     if "." in i:
         numbers.append(int(i.strip("a.")))
 
